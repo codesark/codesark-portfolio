@@ -141,7 +141,7 @@ jobs:
             nextapptag="$IMAGE_TAG"
             cd /services/codesark-portfolio
             sudo rm -f compose.yml comopse.yaml
-            sudo envsubst "$nextapptag" < compose.template.yaml > compose.yaml
+            sudo sh -c "nextapptag='$IMAGE_TAG' envsubst '$nextapptag' < compose.template.yaml > compose.yaml"
             sudo cat compose.yaml
             sudo docker-compose pull
             sudo docker-compose up -d
