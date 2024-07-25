@@ -121,6 +121,8 @@ jobs:
       - build
       - push
     runs-on: ubuntu-latest
+    # only run if branch is main or commit have "release" tag
+    if: ${{ needs.build.outputs.branch == 'main' || contains(github.event.head_commit.message, 'release:') }}
     steps:
       - name: SSH Deploy
         uses: appleboy/ssh-action@v0.1.6
