@@ -69,7 +69,7 @@ jobs:
           digest="${{ steps.build.outputs.digest }}"
           touch "/tmp/digests/${digest#sha256:}"          
       - name: Upload digest
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: digests
           path: /tmp/digests/*
@@ -86,7 +86,7 @@ jobs:
       - build
     steps:
       - name: Download digests
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: digests
           path: /tmp/digests
@@ -122,7 +122,7 @@ jobs:
       - push
     runs-on: ubuntu-latest
     # only run if branch is main or commit have "release" tag
-    if: ${{ needs.build.outputs.branch == 'main' || contains(github.event.head_commit.message, 'release:') }}
+    if: ${{ needs.build.outputs.branch == 'main' || contains(github.event.head_commit.message, 'release') }}
     steps:
       - name: SSH Deploy
         uses: appleboy/ssh-action@v0.1.6
@@ -140,8 +140,7 @@ jobs:
           script: |
             cd ~/compose-apps/codesark-portfolio \
             rm -f compose.yml comopse.yaml \
-            nextapptag=$IMAGE_TAG \
-            envsubst '$nextapptag' < compose.template.yaml > compose.yaml \
+            nextapptag=$IMAGE_TAG envsubst '$nextapptag' < compose.template.yaml > compose.yaml \
             cat compose.yaml \
             docker compose pull \
             docker compose up -d 
