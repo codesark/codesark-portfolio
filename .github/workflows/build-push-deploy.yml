@@ -127,12 +127,12 @@ jobs:
       - name: SSH Deploy
         uses: appleboy/ssh-action@v0.1.6
         env:
-          IMAGE_TAG: '${{ needs.build.outputs.branch }}-${{ needs.build.outputs.sha_short }}'
+          IMAGE_TAG: '${{ env.DOCKER_REGISTRY_IMAGE }}:${{ needs.build.outputs.branch }}-${{ needs.build.outputs.sha_short }}'
         with:
           host: ${{ secrets.DEPLOYMENT_HOST }}
           username: ${{ secrets.DEPLOYMENT_USER }}
           key: ${{ secrets.DEPLOYMENT_KEY }}
-          envs: IMAGE_TAG
+          envs: IMAGE_WITH_TAG
           # script: |
           #   kubectl set image deployment/codesark-portfolio \
           #   codesark-portfolio=cr.skpd.io/codesark/codesark-portfolio-frontend:$IMAGE_TAG \
@@ -140,7 +140,7 @@ jobs:
           script: |
             cd ~/compose-apps/codesark-portfolio && \
             rm -f compose.yml comopse.yaml && \
-            nextapptag=$IMAGE_TAG envsubst '$nextapptag' < compose.template.yaml > compose.yaml && \
+            nextappimage=$IMAGE_WITH_TAG envsubst '$nextappimage' < compose.template.yaml > compose.yaml && \
             cat compose.yaml && \
             docker compose pull && \
             docker compose up -d 
