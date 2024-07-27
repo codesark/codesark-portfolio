@@ -138,9 +138,9 @@ jobs:
           #   codesark-portfolio=cr.skpd.io/codesark/codesark-portfolio-frontend:$IMAGE_TAG \
           #   -n codesark
           script: |
-            cd ~/compose-apps/codesark-portfolio \
-            rm -f compose.yml comopse.yaml \
-            nextapptag=$IMAGE_TAG envsubst '$nextapptag' < compose.template.yaml > compose.yaml \
-            cat compose.yaml \
-            docker compose pull \
+            cd ~/compose-apps/codesark-portfolio && \
+            rm -f compose.yml comopse.yaml && \
+            nextapptag=$IMAGE_TAG envsubst '$nextapptag' < compose.template.yaml > compose.yaml && \
+            cat compose.yaml && \
+            docker compose pull && \
             docker compose up -d 
