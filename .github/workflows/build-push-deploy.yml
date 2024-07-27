@@ -127,7 +127,7 @@ jobs:
       - name: SSH Deploy
         uses: appleboy/ssh-action@v0.1.6
         env:
-          IMAGE_TAG: '${{ env.DOCKER_REGISTRY_IMAGE }}:${{ needs.build.outputs.branch }}-${{ needs.build.outputs.sha_short }}'
+          IMAGE_WITH_TAG: '${{ env.DOCKER_REGISTRY_IMAGE }}:${{ needs.build.outputs.branch }}-${{ needs.build.outputs.sha_short }}'
         with:
           host: ${{ secrets.DEPLOYMENT_HOST }}
           username: ${{ secrets.DEPLOYMENT_USER }}
