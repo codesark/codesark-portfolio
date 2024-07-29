@@ -14,16 +14,18 @@ export default function Blog(props: IBlogProps) {
       <FadeInWhenVisible>
         <div className="flex justify-center text-5xl pt-20 pb-10"> Blog </div>
       </FadeInWhenVisible>
-
+      <hr />
       <div className="flex align-items-stretch flex-wrap lg:flex-nowrap gap-4 lg:gap-10 p-5">
         <div className="w-full lg:w-2/3">
           <FadeInWhenVisible className="h-full">
-            <AboutCard />
+            {/* <AboutCard /> */}
+            <></>
           </FadeInWhenVisible>
         </div>
         <div className="w-full lg:w-1/3">
           <FadeInWhenVisible>
-            <ContactCard />
+            {/* <ContactCard /> */}
+            <></>
           </FadeInWhenVisible>
         </div>
       </div>

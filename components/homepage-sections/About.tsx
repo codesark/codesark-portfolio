@@ -10,13 +10,11 @@ export interface IAboutProps {}
 
 export default function About(props: IAboutProps) {
   return (
-    <div className="relative w-full min-h-screen max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
+    <div className="relative w-full max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
       <FadeInWhenVisible>
-        <div className="flex justify-center text-5xl pt-20 py-10">
-          {" "}
-          About Me{" "}
-        </div>
+        <div className="flex justify-center text-5xl pt-20 py-10">About Me</div>
       </FadeInWhenVisible>
+      <hr />
 
       <div className="flex align-items-stretch flex-wrap lg:flex-nowrap gap-4 lg:gap-10 p-5">
         <div className="w-full lg:w-2/3">
