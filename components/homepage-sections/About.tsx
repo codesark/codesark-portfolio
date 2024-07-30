@@ -12,8 +12,8 @@ export default function About(props: IAboutProps) {
   return (
     <div className="relative w-full max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
       <FadeInWhenVisible>
-        <h1 className="text-5xl pt-20 py-10 px-5 ">
-          <span className="text-gray-500 font-light">About:&nbsp;</span>
+        <h1 className="text-5xl pt-20 py-10 px-5 leading-snug">
+          <span className="text-gray-500 font-light">About:</span>
           Who am I?
         </h1>
       </FadeInWhenVisible>

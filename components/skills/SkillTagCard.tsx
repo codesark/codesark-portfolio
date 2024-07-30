@@ -1,11 +1,7 @@
 import * as React from "react";
 
-import {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent,
-} from "../ui/hover-card";
 import { technologies } from "./technologies";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 export interface ISkillTagCardProps {}
 
@@ -14,11 +10,11 @@ export default function SkillTagCard(props: ISkillTagCardProps) {
   return (
     <div className="grid grid-cols-4 gap-4">
       {technologies.map((technology) => (
-        <HoverCard key={technology.name}>
-          <HoverCardTrigger>
+        <Popover key={technology.name}>
+          <PopoverTrigger>
             <technology.icon size={60} />
-          </HoverCardTrigger>
-          <HoverCardContent>
+          </PopoverTrigger>
+          <PopoverContent className="w-72 mx-2">
             <div className="flex justify-between space-x-4">
               <div>
                 <technology.icon size={30} />
@@ -36,8 +32,8 @@ export default function SkillTagCard(props: ISkillTagCardProps) {
             </div> */}
               </div>
             </div>
-          </HoverCardContent>
-        </HoverCard>
+          </PopoverContent>
+        </Popover>
       ))}
     </div>
   );

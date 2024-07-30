@@ -8,18 +8,18 @@ export interface ISocialIconsProps {}
 const socials = [
   {
     _id: 1,
-    network: "twitter",
+    network: "x",
     url: "https://twitter.com/codesark",
   },
   {
     _id: 2,
-    network: "github",
-    url: "https://github.com/codesark",
+    network: "linkedin",
+    url: "https://www.linkedin.com/in/codesark",
   },
   {
     _id: 3,
-    network: "linkedin",
-    url: "https://www.linkedin.com/in/codesark",
+    network: "github",
+    url: "https://github.com/codesark",
   },
 ];
 

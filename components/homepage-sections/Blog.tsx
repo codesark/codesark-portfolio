@@ -12,9 +12,9 @@ export default function Blog(props: IBlogProps) {
   return (
     <div className="relative w-full min-h-screen max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
       <FadeInWhenVisible>
-        <h1 className="text-5xl pt-20 py-10 px-5 ">
-          <span className="text-gray-500 font-light">Blog:&nbsp;</span>
-          Do I write as well?
+        <h1 className="text-5xl pt-20 py-10 px-5 leading-snug">
+          <span className="text-gray-500 font-light">Blog:</span> Do I write as
+          well?
         </h1>
       </FadeInWhenVisible>
       <hr />

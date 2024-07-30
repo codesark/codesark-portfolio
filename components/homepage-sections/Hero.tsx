@@ -50,13 +50,14 @@ export default function Hero(props: IHeroProps) {
         initial={{ y: -500, opacity: 0, scale: 0.5 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className=" flex justify-center"
+        className="flex justify-center"
       >
         <Image
-          src="/profile-pic.png"
+          src="/savinay.jpg"
           alt="Savinay Kumar's Pic"
           width={200}
           height={200}
+          className="rounded-full"
         />
       </motion.div>
       <motion.div
@@ -74,7 +75,7 @@ export default function Hero(props: IHeroProps) {
         initial={{ y: 100, opacity: 0, scale: 1 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="pt-10 flex justify-center lg:gap-10 text-lg"
+        className="pt-10 flex justify-center lg:gap-10 text-lg flex-wrap"
       >
         {" "}
         {MenuItems.map((item) => (

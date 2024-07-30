@@ -2,8 +2,6 @@
 
 import * as React from "react";
 import FadeInWhenVisible from "../animation/FadeInWhenVisible";
-import ContactCard from "../about/ContactCard";
-import AboutCard from "../about/AboutCard";
 import SkillCard from "../skills/SkillCard";
 import SkillTagCard from "../skills/SkillTagCard";
 
@@ -13,9 +11,9 @@ export default function Skills(props: ISkillsProps) {
   return (
     <div className="relative w-full max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
       <FadeInWhenVisible>
-        <h1 className="text-5xl pt-20 py-10 px-5 ">
-          <span className="text-gray-500 font-light">Skills:&nbsp;</span>
-          What I&apos;m good at?
+        <h1 className="text-5xl pt-20 py-10 px-5 leading-snug">
+          <span className="text-gray-500 font-light">Skills:</span> What
+          I&apos;m good at?
         </h1>
       </FadeInWhenVisible>
       <hr />

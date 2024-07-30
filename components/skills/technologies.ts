@@ -173,7 +173,7 @@ export const technologies = [
       "Google Cloud Platform (GCP) is a platform for cloud computing.",
   },
   {
-    name: "redis",
+    name: "Redis",
     icon: RedisOriginal,
     description: "Redis is a key-value store.",
   },
