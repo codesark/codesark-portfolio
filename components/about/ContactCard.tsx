@@ -39,10 +39,8 @@ export function ContactCard() {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Contact Me</CardTitle>
-        <CardDescription>
-          You can fill this form. Or Just Call Me!
-        </CardDescription>
+        <CardTitle>Connect with me</CardTitle>
+        <CardDescription>Let&lsquo;s get in touch.</CardDescription>
       </CardHeader>
       <CardContent>
         <form ref={formRef} onSubmit={handleSubmit}>
@@ -52,27 +50,32 @@ export function ContactCard() {
               <Input id="name" placeholder="What should I call you?" />
             </div>
             <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="contact">Email / Phone</Label>
+              <Input id="name" placeholder="How can I connect back?" />
+            </div>
+            <div className="flex flex-col space-y-1.5">
               <Label htmlFor="contact-topic">Topic</Label>
               <Select>
                 <SelectTrigger id="contact-topic">
                   <SelectValue placeholder="What is it about?" />
                 </SelectTrigger>
                 <SelectContent position="popper">
-                  <SelectItem value="enquiry">Enquiry</SelectItem>
-                  <SelectItem value="feedback">Feedback</SelectItem>
-                  <SelectItem value="suggestion">Suggestions</SelectItem>
-                  <SelectItem value="nodisclosure">
-                    Don&lsquo;t want to tell me 😏
+                  <SelectItem value="enquiry">Enquiry ❓</SelectItem>
+                  <SelectItem value="suggestion">Suggestions 💡</SelectItem>
+                  <SelectItem value="collaboration">
+                    Collaboration 🤝
                   </SelectItem>
-                  <SelectItem value="connect">
-                    Just want to connect 😊
-                  </SelectItem>
+                  <SelectItem value="hire">Hire Me 👋💼</SelectItem>
+                  <SelectItem value="social">Social Media 📱</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="contact-topic">Message</Label>
-              <Textarea id="contact-message" placeholder="Your message" />
+              <Textarea
+                id="contact-message"
+                placeholder="Feel free to write anything you want!"
+              />
             </div>
           </div>
         </form>
