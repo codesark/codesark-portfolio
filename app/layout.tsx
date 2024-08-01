@@ -3,6 +3,7 @@ import { Inter, Poppins, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import TopTag from "@/components/toptag/TopTag";
 import Background from "@/components/background/Background";
+import GlobalLoader from "@/components/loader/global-loader";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
