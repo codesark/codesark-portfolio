@@ -8,18 +8,11 @@ import TypewriterName from "../typewriter/TypewriterName";
 import SocialIcons from "../socials/SocialIcons";
 import Image from "next/image";
 
-import {
-  CpuChipIcon,
-  NewspaperIcon,
-  UserCircleIcon,
-  WrenchScrewdriverIcon,
-} from "@heroicons/react/24/outline";
-
 const MenuItems = [
-  { name: "About", icon: UserCircleIcon, path: "#about" },
-  { name: "Skills", icon: WrenchScrewdriverIcon, path: "#skills" },
-  { name: "Projects", icon: CpuChipIcon, path: "#projects" },
-  { name: "Blog", icon: NewspaperIcon, path: "#blog" },
+  { name: "About", path: "#about" },
+  { name: "Skills", path: "#skills" },
+  { name: "Projects", path: "#projects" },
+  { name: "Blog", path: "#blog" },
 ];
 
 export const CustomLink = (props: any) => {

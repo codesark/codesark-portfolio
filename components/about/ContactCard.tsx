@@ -34,7 +34,8 @@ import {
 } from "../ui/dialog";
 import { sendMailContactEmail } from "./contactActions";
 import { LoadingButton } from "../ui/loading-button";
-import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import CheckCircleIcon from "@heroicons/react/24/outline/CheckCircleIcon";
+import XCircleIcon from "@heroicons/react/24/outline/XCircleIcon";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),

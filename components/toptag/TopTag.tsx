@@ -1,13 +1,11 @@
 "use client";
 
-import {
-  CpuChipIcon,
-  HomeIcon,
-  NewspaperIcon,
-  UserCircleIcon,
-  WrenchScrewdriverIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import CpuChipIcon from "@heroicons/react/24/outline/CpuChipIcon";
+import HomeIcon from "@heroicons/react/24/outline/HomeIcon";
+import NewspaperIcon from "@heroicons/react/24/outline/NewspaperIcon";
+import UserCircleIcon from "@heroicons/react/24/outline/UserCircleIcon";
+import WrenchScrewdriverIcon from "@heroicons/react/24/outline/WrenchScrewdriverIcon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
@@ -105,7 +103,7 @@ export default function TopTag(props: ITopTagProps) {
 }
 
 /**
- * 
+ *
  *  <motion.ul
             hidden={true}
             className="flex flex-col absolute bg-primary text-primary-foreground mt-3 ml-2 md:ml-10 py-2 border rounded-lg  min-w-[200px]"
@@ -137,7 +135,7 @@ export default function TopTag(props: ITopTagProps) {
                   <div className="p-2 w-full hover:bg-zinc-800">{ele.name}</div>
                 </Link>
               </motion.li>
-            ))} 
+            ))}
             <motion.li variants={itemVariants}>sdsd</motion.li>
             <motion.li variants={itemVariants}>sdsd</motion.li>
             <motion.li variants={itemVariants}>sdsd</motion.li>

@@ -29,18 +29,15 @@ import SonarqubeOriginal from "devicons-react/lib/icons/SonarqubeOriginal";
 import JiraOriginal from "devicons-react/lib/icons/JiraOriginal";
 import JenkinsOriginal from "devicons-react/lib/icons/JenkinsOriginal";
 import JestPlain from "devicons-react/lib/icons/JestPlain";
-
-import {
-  ElasticsearchOriginal,
-  FigmaOriginal,
-  FirebaseOriginal,
-  FlutterOriginal,
-  MongodbOriginal,
-  PostmanOriginal,
-  SpringOriginal,
-  TensorflowOriginal,
-  VscodeOriginal,
-} from "devicons-react";
+import ElasticsearchOriginal from "devicons-react/lib/icons/ElasticsearchOriginal";
+import FigmaOriginal from "devicons-react/lib/icons/FigmaOriginal";
+import FirebaseOriginal from "devicons-react/lib/icons/FirebaseOriginal";
+import FlutterOriginal from "devicons-react/lib/icons/FlutterOriginal";
+import MongodbOriginal from "devicons-react/lib/icons/MongodbOriginal";
+import PostmanOriginal from "devicons-react/lib/icons/PostmanOriginal";
+import SpringOriginal from "devicons-react/lib/icons/SpringOriginal";
+import TensorflowOriginal from "devicons-react/lib/icons/TensorflowOriginal";
+import VscodeOriginal from "devicons-react/lib/icons/VscodeOriginal";
 
 export const technologies = [
   {
