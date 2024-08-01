@@ -7,7 +7,7 @@ export interface ITypewriterNameProps {}
 
 export default function TypewriterName(props: ITypewriterNameProps) {
   return (
-    <div className="text-3xl lg:text-5xl font-bold flex justify-center font-">
+    <div className="text-3xl lg:text-5xl font-bold flex justify-center">
       <Typewriter
         words={["Savinay Kumar", "<CodeSark />"]}
         cursor

@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import FadeInWhenVisible from "../animation/FadeInWhenVisible";
-import Image from "next/image";
 import ContactCard from "../about/ContactCard";
 import AboutCard from "../about/AboutCard";
 

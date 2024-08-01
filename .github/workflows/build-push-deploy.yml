@@ -67,7 +67,7 @@ jobs:
         run: |
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}"
-          touch "/tmp/digests/${digest#sha256:}"          
+          touch "/tmp/digests/${digest#sha256:}"
       - name: Upload digest
         uses: actions/upload-artifact@v3
         with:
@@ -112,12 +112,12 @@ jobs:
         working-directory: /tmp/digests
         run: |
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            $(printf '${{ env.DOCKER_REGISTRY_IMAGE }}@sha256:%s ' *)          
+            $(printf '${{ env.DOCKER_REGISTRY_IMAGE }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.DOCKER_REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}     
+          docker buildx imagetools inspect ${{ env.DOCKER_REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}
   deploy:
-    needs: 
+    needs:
       - build
       - push
     runs-on: ubuntu-latest
@@ -143,4 +143,4 @@ jobs:
             nextappimage=$IMAGE_WITH_TAG envsubst '$nextappimage' < compose.template.yaml > compose.yaml && \
             cat compose.yaml && \
             docker compose pull && \
-            docker compose up -d 
+            docker compose up -d

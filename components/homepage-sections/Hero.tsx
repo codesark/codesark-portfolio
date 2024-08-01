@@ -53,10 +53,11 @@ export default function Hero(props: IHeroProps) {
         className="flex justify-center"
       >
         <Image
-          src="/savinay.jpg"
+          src="/profile-pic.png"
           alt="Savinay Kumar's Pic"
           width={200}
           height={200}
+          priority
           className="rounded-full"
         />
       </motion.div>
