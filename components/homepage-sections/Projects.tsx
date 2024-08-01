@@ -12,7 +12,7 @@ export default function Projects(props: IProjectsProps) {
   return (
     <div className="relative w-full max-w-screen-xl mx-auto flex flex-col justify-center overflow-hidden">
       <FadeInWhenVisible>
-        <h1 className="text-5xl pt-20 py-10 px-5 leading-snug">
+        <h1 className="text-5xl pt-20 py-10 px-5 leading-snug text-center">
           <span className="text-gray-500 font-light">Projects:</span> What
           things I&apos;ve built?
         </h1>

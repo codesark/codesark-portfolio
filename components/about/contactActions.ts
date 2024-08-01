@@ -4,19 +4,30 @@ import { sendMail } from "./../../utils/mailer";
 
 interface IContactForm {
   name: string;
-  topic: string;
+  subject: string;
   email: string;
   message: string;
 }
+
+const SEND_EMAIL_TO = "savinaykumar@outlook.com";
 
 export async function sendMailContactEmail(
   data: IContactForm
 ): Promise<boolean> {
   try {
     const mail = await sendMail(
-      data.email,
-      data.name + " | " + data.topic,
-      data.message + "\n\n" + data.name
+      SEND_EMAIL_TO,
+      `${data.name} | ${data.subject} | ${data.email}`,
+      `
+      From: ${data.email}
+
+      Name: ${data.name}
+
+      Subject: ${data.subject}
+
+      Message: ${data.message}
+
+      `
     );
     console.log(mail);
     return true;

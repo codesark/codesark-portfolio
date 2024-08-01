@@ -35,6 +35,12 @@ import {
 } from "../ui/dialog";
 import { LoadingSpinner } from "../ui/loading-spinner";
 import { sendMailContactEmail } from "./contactActions";
+import { LoadingButton } from "../ui/loading-button";
+import {
+  CheckCircleIcon,
+  StopCircleIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/outline";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -50,7 +56,7 @@ const schema = yup.object().shape({
   //   .required("Contact is required"),
   contact: yup.string().email().required("Contact is required"),
   message: yup.string().required("Message is required"),
-  topic: yup.string().required("Topic is required"),
+  subject: yup.string().required("Subject is required"),
 });
 
 export function ContactCard() {
@@ -59,6 +65,8 @@ export function ContactCard() {
     handleSubmit,
     setValue,
     formState: { errors },
+    reset,
+    clearErrors,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -73,15 +81,17 @@ export function ContactCard() {
       setIsLoading(true);
       const result = await sendMailContactEmail({
         name: data.name,
-        topic: data.topic,
+        subject: data.subject,
         email: data.contact,
         message: data.message,
       });
       console.log("result", result);
     } catch (error) {
-      setIsLoading(false);
       setIsError("An error occured, please try again later.");
       console.log(error);
+    } finally {
+      setIsLoading(false);
+      setIsDialogOpen(true);
     }
   });
 
@@ -117,19 +127,19 @@ export function ContactCard() {
               )}
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="topic">Topic</Label>
+              <Label htmlFor="subject">Subject</Label>
               <Select
-                name="topic"
+                name="subject"
                 onValueChange={(value) => {
                   console.log(value);
-                  setValue("topic", value);
+                  setValue("subject", value);
                 }}
               >
                 <SelectTrigger>
                   <SelectValue
-                    id="topic"
+                    id="subject"
                     placeholder="What is it about?"
-                    {...register("topic")}
+                    {...register("subject")}
                   />
                 </SelectTrigger>
                 <SelectContent position="popper">
@@ -142,12 +152,12 @@ export function ContactCard() {
                   <SelectItem value="social">Social Media 📱</SelectItem>
                 </SelectContent>
               </Select>
-              {errors.topic && (
-                <p className="text-red-500">{errors.topic.message}</p>
+              {errors.subject && (
+                <p className="text-red-500">{errors.subject.message}</p>
               )}
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="contact-topic">Message</Label>
+              <Label htmlFor="contact-subject">Message</Label>
               <Textarea
                 id="contact-message"
                 placeholder="Feel free to write anything you want!"
@@ -159,21 +169,39 @@ export function ContactCard() {
             </div>
           </div>
           <CardFooter className="pt-2 px-0 flex justify-between">
-            <Button variant="outline">Reset</Button>
-            <Button type="submit">Send</Button>
+            <Button variant="outline" onClick={() => reset() && clearErrors()}>
+              Reset
+            </Button>
+            <LoadingButton loading={isLoading} type="submit">
+              Send
+            </LoadingButton>
           </CardFooter>
         </form>
       </CardContent>
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent>
-          <DialogTitle>Thank you!</DialogTitle>
-          <DialogDescription className="pt-2 text-center">
-            <div className="flex justify-center w-full p-2">
-              <LoadingSpinner borderColor="#fff" borderTopColor="#eee" />
-            </div>
-            Your message has been sent. I&lsquo;ll get back to you as soon as
-            possible.
-          </DialogDescription>
+          {!isError ? (
+            <>
+              <DialogTitle>Thank you!</DialogTitle>
+              <DialogDescription className="pt-2 text-center">
+                <div className="flex justify-center w-full p-2">
+                  <CheckCircleIcon className="w-20 h-20 text-green-500" />
+                </div>
+                Your message has been sent. I&lsquo;ll get back to you as soon
+                as possible.
+              </DialogDescription>
+            </>
+          ) : (
+            <>
+              <DialogTitle>Oops!</DialogTitle>
+              <DialogDescription className="pt-2 text-center">
+                <div className="flex justify-center w-full p-2">
+                  <XCircleIcon className="w-20 h-20 text-red-500" />
+                </div>
+                Something went wrong. Please try again later.
+              </DialogDescription>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </Card>
