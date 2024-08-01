@@ -31,16 +31,10 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
-  DialogTrigger,
 } from "../ui/dialog";
-import { LoadingSpinner } from "../ui/loading-spinner";
 import { sendMailContactEmail } from "./contactActions";
 import { LoadingButton } from "../ui/loading-button";
-import {
-  CheckCircleIcon,
-  StopCircleIcon,
-  XCircleIcon,
-} from "@heroicons/react/24/outline";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -66,7 +60,6 @@ export function ContactCard() {
     setValue,
     formState: { errors },
     reset,
-    clearErrors,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -169,7 +162,7 @@ export function ContactCard() {
             </div>
           </div>
           <CardFooter className="pt-2 px-0 flex justify-between">
-            <Button variant="outline" onClick={() => reset() && clearErrors()}>
+            <Button variant="outline" onClick={() => reset()}>
               Reset
             </Button>
             <LoadingButton loading={isLoading} type="submit">
