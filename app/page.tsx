@@ -25,7 +25,7 @@ export const metadata = {
     siteName: "Savinay Kumar",
     images: [
       {
-        url: "https://savinaykumar.com/_next/image?url=%2Fsavinay.jpg&w=256&q=75 1x, /_next/image?url=%2Fprofile-pic.png&w=1200&q=75",
+        url: "https://savinaykumar.com/savinay-wall.jpg",
         width: 1200,
         height: 630,
       },
@@ -40,7 +40,7 @@ export const metadata = {
     creator: "@codesark",
     images: [
       {
-        url: "https://savinaykumar.com/images/codesark-portfolio.png",
+        url: "https://savinaykumar.com/savinay-wall.jpg",
         width: 640,
         height: 630,
       },
