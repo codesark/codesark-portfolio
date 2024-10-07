@@ -2,8 +2,40 @@
 
 import * as React from "react";
 import FadeInWhenVisible from "../animation/FadeInWhenVisible";
+import ProjectCard from "../projects/ProjectCard";
 
 export interface IProjectsProps {}
+
+
+const projects = [
+  {
+    title: "SML Saarthi ",
+    description: "Tracking, Monitoring, Alerting and Analytics solution for SML ISUZU customer. Fleet Optimization for buses and trucks.",
+    technologies: ["React", "Node.js", "Kafka", "GraphQL", "Material UI", "Google Maps", "Typescript"],
+    url: "https://pro.smlsaarthi.com",
+    github: "",
+    images: ["image1.png", "image2.png"],
+    features: ["Feature 1", "Feature 2"],
+  },
+  {
+    title: "Avarta Life",
+    description: "Smart Recycling App | Gemini AI powered app to help people recycle and reuse waste materials.",
+    technologies: ["Gemini AI", "Next.js", "Flutter", "FastAPI", "React", "Tailwind CSS", "Google Maps", "RAG","Firebase"],
+    url: "https://avarta.life",
+    github: "https://github.com/orgs/Avarta-Life/repositories",
+    images: ["image1.png", "image2.png"],
+    features: ["Feature 1", "Feature 2"],
+  },
+  // {
+  //   title: "",
+  //   description: "Smart Recycling App | Gemini AI powered app to help people recycle and reuse waste materials.",
+  //   technologies: ["Gemini AI", "Next.js", "Flutter", "FastAPI", "React", "Tailwind CSS", "Google Maps", "RAG","Firebase"],
+  //   url: "https://avarta.life",
+  //   github: "https://github.com/orgs/Avarta-Life/repositories",
+  //   images: ["image1.png", "image2.png"],
+  //   features: ["Feature 1", "Feature 2"],
+  // },
+]
 
 export default function Projects(props: IProjectsProps) {
   return (
@@ -16,18 +48,21 @@ export default function Projects(props: IProjectsProps) {
       </FadeInWhenVisible>
       <hr />
       <div className="flex align-items-stretch flex-wrap lg:flex-nowrap gap-4 lg:gap-10 p-5">
-        <div className="w-full lg:w-2/3">
-          <FadeInWhenVisible className="h-full">
-            {/* <AboutCard /> */}
-            <></>
-          </FadeInWhenVisible>
-        </div>
-        <div className="w-full lg:w-1/3">
-          <FadeInWhenVisible>
-            {/* <ContactCard /> */}
-            <></>
-          </FadeInWhenVisible>
-        </div>
+        {projects.map((project) => (
+          <div key={project.title} className="w-full lg:w-2/3">
+            <FadeInWhenVisible className="h-full">
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                technologies={project.technologies}
+                url={project.url}
+                github={project.github}
+                images={project.images}
+                features={project.features}
+              />
+            </FadeInWhenVisible>
+          </div>
+        ))}
       </div>
     </div>
   );
